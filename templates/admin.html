@@ -1,0 +1,63 @@
+{% extends "sublayout.html" %}
+{% block body %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static',filename='assets/img/home-bg.jpg') }}')">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <div class="site-heading">
+                            <h2>Welcome {{name}} to EAMS</h2>
+                            <span class="subheading">{{params['tag_line']}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <h3><a href="/add?action=attendance&tid=0"><button class="btn btn-primary">Add attendance</button></a></h3>
+                    <hr>
+                    <h1>All Attendance</h1>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Eno</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Time in</th>
+                            <th>Time out</th>                            
+                            <th>Edit</th>
+                            <th>Delete</th>         
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                          {% for item in attendance -%}
+                          <tr>
+                            <td>{{item.eid}}</td>
+                            <td>{{item.ename}}</td>
+                            <td>{{item.date}}</td>
+                            <td>{{item.status}}</td>
+                            <td>{{item.timein}}</td>
+                            <td>{{item.timeout}}</td>                            
+                            <td><a href="/add?action=attendance&tid={{item.eid}}&date={{item.date}}"><button class="btn btn-primary">Edit</button></a></td>
+                            <td><a href="/delete?action=attendance&tid={{item.eid}}&date={{item.date}}"><button class="btn btn-primary">Delete</button></a></td>
+                          </tr>
+                          {%- endfor %}
+
+                        </tbody>
+                      </table>
+                             
+                    
+                    <div class="clearfix">
+                        <a class="btn btn-primary float-left" href="{{prev}}">&larr; Previous </a>
+                        <a class="btn btn-primary float-right" href="{{next}}">Next &rarr;</a>
+                </div>
+            </div>
+        </div>
+          {% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block body %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static',filename='assets/img/home-bg.jpg') }}')">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <div class="site-heading">
+                            <h2>{{params['blog_name']}}</h2>
+                            <span class="subheading">{{params['tag_line']}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <hr>
+                    <h1>Todays Attendance</h1>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Eno</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Time in</th>
+                            <th>Time out</th>                        
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                          {% for item in attendance -%}
+                          <tr>
+                            <td>{{item.eid}}</td>
+                            <td>{{item.ename}}</td>
+                            <td>{{item.date}}</td>
+                            <td>{{item.status}}</td>
+                            <td>{{item.timein}}</td>
+                            <td>{{item.timeout}}</td>
+                          </tr>
+                          {%- endfor %}
+
+                        </tbody>
+                      </table>
+                             
+                    
+                    <div class="clearfix">
+                        <a class="btn btn-primary float-left" href="{{prev}}">&larr; Previous </a>
+                        <a class="btn btn-primary float-right" href="{{next}}">Next &rarr;</a>
+                </div>
+            </div>
+        </div>
+          {% endblock %}

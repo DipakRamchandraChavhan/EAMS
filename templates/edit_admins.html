@@ -1,0 +1,61 @@
+{% extends "sublayout.html" %}
+{% block body %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static',filename='assets/img/home-bg.jpg') }}')">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <div class="site-heading">
+                            <h1>Admin Panel</h1>
+                            <span class="subheading">Edit and manage your Admins here</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    
+                    <h1>Add/Edit Admins</h1>
+                     <form id="contactForm" name="sentMessage" action="/add?action=admin&tid1={{tid}}" method="post"novalidate>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Admins First name</label>
+                                <input class="form-control" id="fname" name="fname" type="text" placeholder="Employee First name" required data-validation-required-message="Please enter First name." value="{{emp.fname}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>                        
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Admin Last name</label>
+                                <input class="form-control" id="lname" name="lname" type="text" placeholder="Employee Last name" required data-validation-required-message="Please enter Last name." value="{{emp.lname}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>                        
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Username</label>
+                                <input class="form-control" id="username" name="username" type="text" placeholder="Username" required data-validation-required-message="Please enter Employee Username." value="{{emp.username}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Password </label>
+                                <input class="form-control" id="password" name="password" type="text" placeholder="Password" required data-validation-required-message="Please enter Employee Password." value="{{emp.password}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>                  
+                        <br />
+                        <div id="success"></div>
+                        <button class="btn btn-primary" id="sendMessageButton" type="submit">Submit</button>
+                    </form>
+                                        
+                </div>
+            </div>
+        </div>
+          {% endblock %}

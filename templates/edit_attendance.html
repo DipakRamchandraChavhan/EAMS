@@ -1,0 +1,76 @@
+{% extends "sublayout.html" %}
+{% block body %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static',filename='assets/img/home-bg.jpg') }}')">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <div class="site-heading">
+                            <h1>Admin Panel</h1>
+                            <span class="subheading">Edit and manage your Attendance here</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    
+                    <h1>Add/Edit Attendance</h1>
+                     <form id="contactForm" name="sentMessage" action="/add?action=attendance&tid1={{tid}}&date={{date}}" method="post"novalidate>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Eployee Id</label>
+                                <input class="form-control" id="tid" name="tid" type="text" placeholder="Eployee Id" required data-validation-required-message="Please enter Employee id." value="{{attendance.eid}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Employee name</label>
+                                <input class="form-control" id="name" name="name" type="text" placeholder="Employee name" required data-validation-required-message="Please enter Employee name." value="{{attendance.ename}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Status</label>
+                                <input class="form-control" id="status" name="status" type="text" placeholder="Status" required data-validation-required-message="Please enter Employee status." value="{{attendance.status}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Date</label>
+                                <input class="form-control" id="date" name="date" type="text" placeholder="Date" required data-validation-required-message="Please enter Employee status." value="{{attendance.date}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Time in</label>
+                                <input class="form-control" id="timein" name="timein" type="text" placeholder="Time in" required data-validation-required-message="Please enter Employee status." value="{{attendance.timein}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Time out</label>
+                                <input class="form-control" id="timeout" name="timeout" type="text" placeholder="Time out" required data-validation-required-message="Please enter Employee status." value="{{attendance.timeout}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                                                
+                        <br />
+                        <div id="success"></div>
+                        <button class="btn btn-primary" id="sendMessageButton" type="submit">Submit</button>
+                    </form>
+                                        
+                </div>
+            </div>
+        </div>
+          {% endblock %}

@@ -1,0 +1,14 @@
+{
+    "params": {
+        "websitename": "The EAMS Systems",
+        "local_server":"True",
+        "local_uri":"mysql://root:@localhost/attendance",
+        "prod_uri":"mysql://root:@localhost/attendance",
+        "gh_url":"https://github.com/DipakRamchandraChavhan",
+        "blog_name":"Welcome to EAMS",
+        "tag_line":"No crowd no waiting",
+        "no_of_posts":5,
+        "login_image":"about-bg.jpg"
+    }
+
+}

@@ -1,0 +1,117 @@
+{% extends "sublayout.html" %}
+{% block body %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static',filename='assets/img/home-bg.jpg') }}')">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <div class="site-heading">
+                            <h1>Admin Panel</h1>
+                            <span class="subheading">Edit and manage your Employees here</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    
+                    <h1>Add/Edit Employees</h1>
+                     <form id="contactForm" name="sentMessage" action="/add?action=employee&tid1={{tid}}" method="post"novalidate>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Employee First name</label>
+                                <input class="form-control" id="fname" name="fname" type="text" placeholder="Employee First name" required data-validation-required-message="Please enter First name." value="{{emp.fname}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Employee Middle name</label>
+                                <input class="form-control" id="mname" name="mname" type="text" placeholder="Employee Middle name" required data-validation-required-message="Please enter Middle name." value="{{emp.mname}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Employee Last name</label>
+                                <input class="form-control" id="lname" name="lname" type="text" placeholder="Employee Last name" required data-validation-required-message="Please enter Last name." value="{{emp.lname}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Position</label>
+                                <input class="form-control" id="position" name="position" type="text" placeholder="Position" required data-validation-required-message="Please enter Employee Position." value="{{emp.position}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Departent</label>
+                                <input class="form-control" id="dept" name="dept" type="text" placeholder="Department" required data-validation-required-message="Please enter Employee Department." value="{{emp.dept}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Gender</label>
+                                <input class="form-control" id="gender" name="gender" type="text" placeholder="Gender" required data-validation-required-message="Please enter Employee Gender" value="{{emp.gender}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Mob no</label>
+                                <input class="form-control" id="mob" name="mob" type="text" placeholder="Mob no" required data-validation-required-message="Please enter Employee Mmob no." value="{{emp.mob}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Email</label>
+                                <input class="form-control" id="email" name="email" type="text" placeholder="Email" required data-validation-required-message="Please enter Employee Email." value="{{emp.email}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>City</label>
+                                <input class="form-control" id="city" name="city" type="text" placeholder="City" required data-validation-required-message="Please enter Employee City." value="{{emp.city}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Address</label>
+                                <input class="form-control" id="address" name="address" type="text" placeholder="Address" required data-validation-required-message="Please enter Employee Position." value="{{emp.address}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Username</label>
+                                <input class="form-control" id="username" name="username" type="text" placeholder="Username" required data-validation-required-message="Please enter Employee Username." value="{{emp.username}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Password </label>
+                                <input class="form-control" id="password" name="password" type="text" placeholder="Password" required data-validation-required-message="Please enter Employee Password." value="{{emp.password}}" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>                  
+                        <br />
+                        <div id="success"></div>
+                        <button class="btn btn-primary" id="sendMessageButton" type="submit">Submit</button>
+                    </form>
+                                        
+                </div>
+            </div>
+        </div>
+          {% endblock %}
